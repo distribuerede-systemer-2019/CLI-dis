@@ -1,5 +1,8 @@
 package client;
 
+import com.google.gson.Gson;
+import server.models.User;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,9 +15,8 @@ public class Client {
     private static final String BASE = "http://localhost:8080/api/";
 
     public static void main(String[] args) throws Exception {
-        System.out.println("This is a super cool example!");
-        System.out.println("");
-        System.out.println("Menu Options:");
+        clearConsole();
+        System.out.println("Main menu:");
         System.out.println("1. Get all users");
         System.out.println("2. Get user by id");
         System.out.println("3. Create new user");
@@ -58,13 +60,6 @@ public class Client {
         // optional default is GET
         con.setRequestMethod("GET");
 
-        //add request header
-        con.setRequestProperty("User-Agent", USER_AGENT);
-
-        int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'GET' request to URL : " + url);
-        System.out.println("Response Code : " + responseCode);
-
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
         String inputLine;
@@ -73,9 +68,24 @@ public class Client {
         while ((inputLine = in.readLine()) != null) {
             response.append(inputLine);
         }
+
         in.close();
 
-        //print result
-        System.out.println(response.toString());
+        User[] users = new Gson().fromJson(response.toString(), User[].class);
+        for(User u : users) {
+            System.out.println(u);
+        }
+
+
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in)
+        );
+        System.out.println("Press any key to return to main menu");
+        br.readLine();
+        main(null);
+    }
+
+    public static void clearConsole() {
+        System.out.println(new String(new char[50]).replace("\0", "\r\n")); //work around to clear console
     }
 }
