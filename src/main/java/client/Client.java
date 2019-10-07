@@ -11,7 +11,6 @@ import java.net.URL;
 
 public class Client {
     //configure your client here
-    private static final String USER_AGENT = "Mozilla/5.0";
     private static final String BASE = "http://localhost:8080/api/";
 
     public static void main(String[] args) throws Exception {
