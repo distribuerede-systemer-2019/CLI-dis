@@ -20,8 +20,9 @@ Her kan du få inspiration fra `getAllUsers`. Bemærk at metoden kræver, at du 
 
 Håndter også fejl. Hvis du skriver et tal på en bruger, som ikke eksisterer.
 
-#### 4. Opgave
+Annulleret pt.
+~#### 4. Opgave
 implementer metoden `createUser`. Igen skal du bruge endnu et menupunkt, hvor du skal kunne indtaste en brugers oplysninger en ad gangen. Dette skal du så lave om til et brugerobject, som skal serializes (gennem Json) og sendes til UserTable. Bemærk at jeres UserEndpoint har en metode, der hedder `createUser` som tager imod en Json String.
-Det vil sige, at jeres data skal formateres korrekt inden i sender det afsted. 
+Det vil sige, at jeres data skal formateres korrekt inden i sender det afsted. Hint: https://www.baeldung.com/httpurlconnection-post~
 
 
