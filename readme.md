@@ -11,8 +11,7 @@ Vær sikker på at projektet kører ved at åbne din browser og naviger til base
 
 
 #### 2. Opgave
-Kør Client klassen og prøv at hent brugere gennem CLI
-nt`-klassen, som kan returnere én specifik bruger, hvor der søges med brugerens ID.
+Kør Client klassen og prøv at hent brugere gennem `client`-klassen, som kan returnere én specifik bruger, hvor der søges med brugerens ID.
 
 #### 3. Opgave
 Implementer metoden `getUserById`
